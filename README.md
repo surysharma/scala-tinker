@@ -1,1 +1,1 @@
-# scala-tinker
+# Scala for the Impatient  
