@@ -1,8 +1,6 @@
 package chap2
 
-/**
-  * Created by sureshsharma on 25/06/2016.
-  */
+
 class Ex04 extends App{
 
   /*
