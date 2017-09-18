@@ -3,3 +3,4 @@
 build.sbt
 project/
 target/
+**/.DS_Store

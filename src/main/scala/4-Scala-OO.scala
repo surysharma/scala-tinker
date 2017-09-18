@@ -12,6 +12,17 @@ case class Account(val balance: Double, val currency: String) {
     new Account(this.balance + amount, this.currency)
   }
 
+  /*
+  Overloaded deposit function with return type Any
+   */
+  def deposit(cashFlow: CashFlow): Any = {
+    if (currency.equalsIgnoreCase(cashFlow.currency)) {
+      new Account(this.balance + cashFlow.amount, currency)
+    }  else {
+      println(s"Sorry, invalid currency amount!")
+    }
+  }
+
   def withdraw(amount: Double) = {
     new Account(this.balance - amount, this.currency)
   }
@@ -26,15 +37,34 @@ object CashFlow {
   def main(array: Array[String]) = {
 
     val account = new Account(24, "GBP")
+
+    def depositCashFlow(account: Any, cashFlow: CashFlow) = {
+      if (account.isInstanceOf[Account]){
+        val acct = account.asInstanceOf[Account]
+        println(s"Amount deposited ${cashFlow.amount}, Available balance : ${acct.trackBalance()}")
+      }
+      else{
+        println("CashFlow instance not applied...")
+      }
+
+    }
+
+
     println(s"Initial balance ${account.trackBalance()}")
 
-    deposit(10)
-    withdrawl(15)
+    val updatedAcct1 = account.deposit(10)
+    println(s"Amount deposited 10, Available balance : ${updatedAcct1.trackBalance()}")
+
+    val updatedAcct2 = updatedAcct1.withdraw(15)
+    println(s"Amount withdraw 15, Available balance : ${updatedAcct2.trackBalance()}")
+
+    val updatedAcct3 = updatedAcct2.withdraw(5)
+    println(s"Amount withdraw 5, Available balance : ${updatedAcct3.trackBalance()}")
 
 
-    def deposit(amount: Double) = println(s"Amount deposited ${amount}, Available balance : ${account.deposit(amount).trackBalance()}")
-
-    def withdrawl(amount: Double) = println(s"Amount withdrawl ${amount}, Available balance : ${account.withdraw(amount).trackBalance()}")
+    val cashFlow = new CashFlow(10, "GBP")
+    val updatedAcct4 = updatedAcct3.deposit(cashFlow)
+    depositCashFlow(updatedAcct4, cashFlow)
 
   }
 }
