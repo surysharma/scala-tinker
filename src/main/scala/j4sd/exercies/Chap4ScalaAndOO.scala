@@ -47,8 +47,8 @@ class Account(val accountNo: String, val balance: Double, val currency: String) 
     }
   }
 
-  def withdraw(amount: Double):Balance = {
-    Balance(balance - amount, currency)
+  def withdraw(amount: Double):Option[Balance] = {
+    Some(Balance(balance - amount, currency))
   }
 }
 
