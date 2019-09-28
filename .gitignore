@@ -1,8 +1,7 @@
-
-.idea/
+# Created by .ignore support plugin (hsz.mobi)
+.history
+.name
 build.sbt
-project/
-target/
-**/.DS_Store
-lib/
-src/test/
+*.xml
+*.iml
+
