@@ -1,3 +1,5 @@
+package com.funcProgInScala.chap1
+
 object Coffee_exp1Driver extends App {
 
 
