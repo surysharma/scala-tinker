@@ -17,4 +17,13 @@ public class Rental
 
     private Movie movie;
     private int daysRented;
+
+    public double getCharge() {
+        return movie.getCharge(daysRented);
+    }
+
+
+    public int getFrequentRenterCharge() {
+        return movie.getFrequentRenterCharge(daysRented);
+    }
 }
