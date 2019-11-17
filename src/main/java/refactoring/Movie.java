@@ -11,7 +11,7 @@ public class Movie {
 
     public Movie (String title, int priceCode) {
         this.title 	= title;
-        setPriceCode(priceCode);
+        setPriceCode(priceCode);//State Pattern
     }
 
     public double getCharge(int daysRented) {
@@ -27,6 +27,7 @@ public class Movie {
         return priceCode;
     }
 
+    //State Pattern
     private void setPriceCode (int code) {
         priceCode = code;
         switch (priceCode) {
